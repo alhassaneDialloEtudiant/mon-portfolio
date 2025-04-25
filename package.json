@@ -1,18 +1,20 @@
 {
   "name": "mon-portfolio",
   "private": true,
-  "homepage": "https://alhassaneDialloEtudiant.github.io/mon-portfolio",  
+  "homepage": "https://alhassaneDialloEtudiant.github.io/mon-portfolio",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
