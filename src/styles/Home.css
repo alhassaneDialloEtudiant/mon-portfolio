@@ -1,7 +1,23 @@
 /* ===== GLOBAL FIX POUR NAVBAR FIXE ===== */
 body {
-  padding-top: 80px; /* Compense la hauteur de la navbar fixe */
+  padding-top: 5px;
   box-sizing: border-box;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== ANIMATION ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== SECTION PRINCIPALE ===== */
@@ -74,7 +90,9 @@ body {
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -151,7 +169,11 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   min-width: 180px;
   max-width: 250px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stats__box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 .stats__box h3 {
   font-size: 2rem;
@@ -161,9 +183,6 @@ body {
 .stats__box p {
   font-size: 1rem;
   color: #555;
-}
-.stats__box:hover {
-  transform: translateY(-5px);
 }
 
 /* ===== CITATION ===== */
@@ -188,6 +207,17 @@ body {
   font-size: 1rem;
   color: #64ffda;
   font-family: 'Courier New', monospace;
+}
+
+/* ===== CTA FINAL ===== */
+.home__cta {
+  text-align: center;
+  margin-top: 3rem;
+}
+.home__cta p {
+  font-size: 1.2rem;
+  color: #0a192f;
+  margin-bottom: 1rem;
 }
 
 /* ===== RESPONSIVE ===== */

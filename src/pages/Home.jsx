@@ -1,14 +1,21 @@
+import { motion } from 'framer-motion';
 import photo from '../assets/photos/wc0tnh8i.png';
 import '../styles/Home.css';
 
 function Home() {
   return (
-    <section className="home">
-      <div className="home__container">
-        <div className="home__left">
-          <img src={photo} alt="Moi" className="home__photo" />
-        </div>
-        <div className="home__right">
+    <section className="home" aria-label="Accueil du portfolio">
+      <motion.div 
+        className="home__container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div className="home__left" initial={{ x: -100 }} animate={{ x: 0 }} transition={{ duration: 1 }}>
+          <img src={photo} alt="Photo de Diallo Alhassane" className="home__photo" />
+        </motion.div>
+
+        <motion.div className="home__right" initial={{ x: 100 }} animate={{ x: 0 }} transition={{ duration: 1 }}>
           <h1>
             Bienvenue sur mon <span className="highlight">portfolio</span>
           </h1>
@@ -19,20 +26,32 @@ function Home() {
           <a href="/cv.pdf" download className="home__button">
             <i className="fas fa-file-download"></i> Télécharger mon CV
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Objectif pro */}
-      <section className="vision">
+      <motion.section 
+        className="vision"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <h2>Mon objectif</h2>
         <p>
           Rejoindre une équipe dynamique en alternance pour mettre mes compétences au service de projets innovants,
           tout en continuant à progresser en développement web et en ingénierie des données.
         </p>
-      </section>
+      </motion.section>
 
       {/* Qualités perso */}
-      <section className="values">
+      <motion.section 
+        className="values"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <h2>Ce qui me définit</h2>
         <ul className="values__list">
           <li>💡 Curieux et passionné</li>
@@ -40,10 +59,16 @@ function Home() {
           <li>🚀 Orienté résultats</li>
           <li>🎯 Sens de l’analyse</li>
         </ul>
-      </section>
+      </motion.section>
 
       {/* Mini stats */}
-      <section className="stats">
+      <motion.section 
+        className="stats"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <div className="stats__box">
           <h3>5+</h3>
           <p>projets réalisés</p>
@@ -56,15 +81,21 @@ function Home() {
           <h3>100%</h3>
           <p>motivation</p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Citation */}
-      <section className="quote">
+      <motion.section 
+        className="quote"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
         <blockquote>
           “Le meilleur moyen de prédire l’avenir, c’est de le créer.” <br />
           <span>– Peter Drucker</span>
         </blockquote>
-      </section>
+      </motion.section>
     </section>
   );
 }
