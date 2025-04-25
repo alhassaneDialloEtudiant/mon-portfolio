@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './pages/Navbar';
 import './App.css';
+
+import Navbar from './pages/Navbar';
+import Footer from './pages/Footer';
 import Home from './pages/Home';
 
-// Pages (on va les créer une à une)
-//import Home from './pages/Home';
+// Les autres pages sont en préparation (à activer plus tard)
 // import About from './pages/About';
 // import Skills from './pages/Skills';
 // import Projects from './pages/Projects';
@@ -12,22 +13,28 @@ import Home from './pages/Home';
 
 function App() {
   return (
-    <Router>
-      {/* Menu de navigation */}
+    <Router basename="/mon-portfolio"> {/* ✅ pour GitHub Pages */}
       <Navbar />
 
-      {/* Routes vers les différentes pages */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* 
-        À décommenter au fur et à mesure qu'on ajoute les pages :
-        <Route path="/about" element={<About />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} /> 
-        */}
-      </Routes>
+      <main> {/* ✅ structure flex pour footer collé */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+
+          {/* À activer plus tard */}
+          {/*
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+          */}
+
+          {/* Redirection vers la page d’accueil si URL inconnue */}
+          
+        </Routes>
+      </main>
+      <Footer />
     </Router>
+    
   );
 }
 
