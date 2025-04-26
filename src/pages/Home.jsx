@@ -1,11 +1,33 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import photo from '../assets/photos/wc0tnh8i.png';
+import photo from '../assets/photos/moi.jpg';
 import '../styles/Home.css';
 
 function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const base = import.meta.env.BASE_URL;
+
+  const handleDownload = () => {
+    setIsModalOpen(true);
+  };
+
+  const confirmDownload = () => {
+    const link = document.createElement('a');
+    link.href = `${base}cv/monCvAlternanceDialloAlhassane.pdf`;
+    link.download = 'monCvAlternanceDialloAlhassane.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setIsModalOpen(false);
+  };
+
+  const cancelDownload = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section className="home" aria-label="Accueil du portfolio">
-      <motion.div 
+      <motion.div
         className="home__container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -23,14 +45,29 @@ function Home() {
             Étudiant en <strong>Master MIAGE</strong>, je conçois des solutions web performantes
             et je me spécialise en <strong>data</strong> et <strong>technologies modernes</strong>.
           </p>
-          <a href="/cv.pdf" download className="home__button">
+          <button onClick={handleDownload} className="home__button">
             <i className="fas fa-file-download"></i> Télécharger mon CV
-          </a>
+          </button>
         </motion.div>
       </motion.div>
 
-      {/* Objectif pro */}
-      <motion.section 
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal__content">
+            <p>Êtes-vous sûr de vouloir télécharger mon CV ?</p>
+            <div className="modal__actions">
+              <button onClick={confirmDownload} className="modal__button modal__button--confirm">
+                Oui
+              </button>
+              <button onClick={cancelDownload} className="modal__button modal__button--cancel">
+                Non
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <motion.section
         className="vision"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,8 +81,7 @@ function Home() {
         </p>
       </motion.section>
 
-      {/* Qualités perso */}
-      <motion.section 
+      <motion.section
         className="values"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -61,8 +97,7 @@ function Home() {
         </ul>
       </motion.section>
 
-      {/* Mini stats */}
-      <motion.section 
+      <motion.section
         className="stats"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -83,8 +118,7 @@ function Home() {
         </div>
       </motion.section>
 
-      {/* Citation */}
-      <motion.section 
+      <motion.section
         className="quote"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

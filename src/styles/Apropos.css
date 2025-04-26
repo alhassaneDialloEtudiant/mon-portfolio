@@ -1,0 +1,195 @@
+/* ===== Section principale ===== */
+.apropos {
+  padding: 5rem 2rem 4rem;
+  background: linear-gradient(to bottom, #ffffff, #e0f7fa);
+  color: #0a192f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.apropos h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #0a192f;
+  position: relative;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.apropos h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #64ffda;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+  animation: slideIn 1s ease-in-out;
+}
+
+.apropos p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ===== Timeline (Parcours) ===== */
+.timeline {
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: left;
+  padding-left: 1.5rem;
+  border-left: 3px solid #64ffda;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.timeline li {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #0a192f;
+  position: relative;
+  padding-left: 1rem;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.timeline li span {
+  color: #64ffda;
+  font-weight: 600;
+}
+
+.timeline li::before {
+  content: '•';
+  position: absolute;
+  left: -0.5rem;
+  top: 0.2rem;
+  font-size: 1.5rem;
+  color: #64ffda;
+}
+
+/* ===== Valeurs ===== */
+.valeurs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.valeur {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 30px;
+  font-weight: 500;
+  color: #0a192f;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.valeur:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #64ffda;
+  color: #0a192f;
+}
+
+.valeur i {
+  color: #64ffda;
+  font-size: 1.5rem;
+}
+
+/* ===== Compétences techniques ===== */
+.competences {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  animation: fadeIn 1.8s ease-in-out;
+}
+
+.competence {
+  background-color: #0a192f;
+  color: #ffffff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.competence:hover {
+  background-color: #64ffda;
+  color: #0a192f;
+  transform: translateY(-5px);
+}
+
+/* ===== Objectif ===== */
+.objectif {
+  background-color: #ffffff;
+  max-width: 700px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.objectif p {
+  font-size: 1.2rem;
+  color: #0a192f;
+  line-height: 1.8;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 1rem;
+    border-left: 2px solid #64ffda;
+  }
+
+  .valeurs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .competences {
+    justify-content: center;
+  }
+}

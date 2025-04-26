@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './pages/Navbar';
 import Footer from './pages/Footer';
 import Home from './pages/Home';
-
+import Apropos from './pages/Apropos';
 // Les autres pages sont en préparation (à activer plus tard)
 // import About from './pages/About';
 // import Skills from './pages/Skills';
@@ -19,6 +19,7 @@ function App() {
       <main> {/* ✅ structure flex pour footer collé */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/apropos" element={<Apropos />} />
 
           {/* À activer plus tard */}
           {/*
