@@ -1,120 +1,144 @@
-/* ===== NAVBAR GLOBALE ===== */
+/* ===== NAVBAR GLOBAL ===== */
 .navbar {
   width: 100%;
   background-color: #0a192f;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 1000;
-  height: 70px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: auto;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .navbar__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 1300px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* LOGO */
-.navbar__logo {
-  font-size: 1.6rem;
-  font-weight: bold;
-  color: #64ffda;
-  letter-spacing: 1px;
-}
-
-.navbar__logo span {
-  color: #ffffff;
-}
-
-/* TOGGLE MOBILE */
-.navbar__toggle {
-  display: none;
-  font-size: 2rem;
-  color: #64ffda;
+/* ===== LOGO ET SLOGAN ===== */
+.navbar__branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* espace plus large entre logo et texte */
   cursor: pointer;
 }
 
-/* LIENS NAVIGATION */
+.navbar__logo {
+  width: 80px; /* agrandissement du logo */
+  height: auto;
+}
+
+.navbar__slogan {
+  color: #64ffda;
+  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ===== LIENS DE NAVIGATION ===== */
 .navbar__links {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 2rem;
 }
 
-.nav-link {
+.navbar__links li {
   position: relative;
+}
+
+.nav-link {
   color: #ccd6f6;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  padding-bottom: 4px;
-  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background: #64ffda;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+.nav-link:hover {
+  color: #64ffda;
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-  transform: scaleX(1);
-}
-
+/* Soulignement animé sur lien actif */
 .nav-link.active {
   color: #64ffda;
 }
 
-/* ===== RESPONSIVE NAVBAR ===== */
-@media (max-width: 768px) {
-  .navbar__toggle {
-    display: block;
-  }
+.nav-link.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #64ffda;
+  margin-top: 5px;
+  border-radius: 2px;
+  animation: underline 0.3s ease-in-out;
+}
 
+@keyframes underline {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ===== BURGER MENU MOBILE ===== */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #64ffda;
+  transition: 0.4s;
+}
+
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
   .navbar__links {
     position: absolute;
-    top: 70px; /* correspond à la hauteur de la navbar */
-    right: 1rem;
+    top: 70px;
+    right: 0;
     background-color: #0a192f;
     flex-direction: column;
-    align-items: flex-start;
-    width: 80%;
-    max-width: 300px;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    display: none;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
+    width: 100%;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    transform: translateY(-500px);
+    transition: transform 0.5s ease;
   }
 
   .navbar__links.open {
+    transform: translateY(0);
+  }
+
+  .navbar__toggle {
     display: flex;
-    transform: translateX(0);
   }
 
-  .navbar__links li {
-    width: 100%;
-    margin-bottom: 1rem;
+  .navbar__logo {
+    width: 45px; /* sur mobile, logo plus petit */
   }
 
-  .navbar__links .nav-link {
-    width: 100%;
-    font-size: 1.1rem;
+  .navbar__slogan {
+    font-size: 1rem; /* slogan légèrement plus petit sur mobile */
   }
 }

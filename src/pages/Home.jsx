@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import photo from '../assets/photos/moi.jpg';
 import '../styles/Home.css';
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
   const base = import.meta.env.BASE_URL;
 
+  // Gestion du téléchargement du CV
   const handleDownload = () => {
     setIsModalOpen(true);
   };
@@ -25,19 +28,37 @@ function Home() {
     setIsModalOpen(false);
   };
 
+  // Navigation vers d'autres pages
+  const goToPage = (path) => {
+    navigate(path);
+  };
+
   return (
     <section className="home" aria-label="Accueil du portfolio">
+      {/* Section principale */}
       <motion.div
         className="home__container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <motion.div className="home__left" initial={{ x: -100 }} animate={{ x: 0 }} transition={{ duration: 1 }}>
+        {/* Photo de profil */}
+        <motion.div
+          className="home__left"
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <img src={photo} alt="Photo de Diallo Alhassane" className="home__photo" />
         </motion.div>
 
-        <motion.div className="home__right" initial={{ x: 100 }} animate={{ x: 0 }} transition={{ duration: 1 }}>
+        {/* Texte d'introduction */}
+        <motion.div
+          className="home__right"
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <h1>
             Bienvenue sur mon <span className="highlight">portfolio</span>
           </h1>
@@ -51,6 +72,7 @@ function Home() {
         </motion.div>
       </motion.div>
 
+      {/* Modal de confirmation pour le téléchargement */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal__content">
@@ -67,6 +89,7 @@ function Home() {
         </div>
       )}
 
+      {/* Section Vision */}
       <motion.section
         className="vision"
         initial={{ opacity: 0, y: 50 }}
@@ -74,13 +97,13 @@ function Home() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <h2>Mon objectif</h2>
+        <h2>Construire, apprendre, innover</h2>
         <p>
-          Rejoindre une équipe dynamique en alternance pour mettre mes compétences au service de projets innovants,
-          tout en continuant à progresser en développement web et en ingénierie des données.
+          Chaque projet est pour moi une opportunité de progresser, de collaborer et de transformer des idées en solutions concrètes.
         </p>
       </motion.section>
 
+      {/* Section Valeurs */}
       <motion.section
         className="values"
         initial={{ opacity: 0, y: 50 }}
@@ -97,27 +120,66 @@ function Home() {
         </ul>
       </motion.section>
 
+      {/* Section Navigation */}
       <motion.section
-        className="stats"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        className="navigation-shortcuts"
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+              staggerChildren: 0.2,
+              when: 'beforeChildren',
+              duration: 0.8,
+            },
+          },
+        }}
       >
-        <div className="stats__box">
-          <h3>5+</h3>
-          <p>projets réalisés</p>
-        </div>
-        <div className="stats__box">
-          <h3>2 ans</h3>
-          <p>de formation en informatique</p>
-        </div>
-        <div className="stats__box">
-          <h3>100%</h3>
-          <p>motivation</p>
+        <motion.h2 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}>
+          Explorez mon univers
+        </motion.h2>
+
+        <div className="navigation-buttons">
+          <motion.button
+            className="nav-button"
+            onClick={() => goToPage('/apropos')}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            Qui suis-je ?
+          </motion.button>
+
+          <motion.button
+            className="nav-button"
+            onClick={() => goToPage('/projects')}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            Mes Réalisations
+          </motion.button>
+
+          <motion.button
+            className="nav-button"
+            onClick={() => goToPage('/agence')}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            Mon Agence
+          </motion.button>
         </div>
       </motion.section>
 
+      {/* Section Citation */}
       <motion.section
         className="quote"
         initial={{ opacity: 0, y: 50 }}

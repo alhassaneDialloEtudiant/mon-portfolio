@@ -1,27 +1,37 @@
 import { NavLink } from 'react-router-dom';
-import '../styles/Navbar.css';
 import { useState } from 'react';
+import logo from '../assets/photos/logo.png'; // Ton logo
+import '../styles/Navbar.css'; // Le CSS que je vais aussi t'envoyer
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <div className="navbar__logo">Diallo Alhassane</div>
-
-        <div className="navbar__toggle" onClick={toggleMenu}>
-          {isOpen ? '✖' : '☰'}
+        {/* Logo + slogan */}
+        <div className="navbar__branding" onClick={closeMenu}>
+          <img src={logo} alt="Logo Diallo Alhassane" className="navbar__logo" />
+          <span className="navbar__slogan">Innover, créer, réussir</span>
         </div>
 
+        {/* Menu hamburger pour mobile */}
+        <div className="navbar__toggle" onClick={toggleMenu}>
+          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
+        </div>
+
+        {/* Liens de navigation */}
         <ul className={`navbar__links ${isOpen ? 'open' : ''}`}>
-          <li><NavLink to="/" className="nav-link" onClick={() => setIsOpen(false)}>Accueil</NavLink></li>
-          <li><NavLink to="/apropos" className="nav-link" onClick={() => setIsOpen(false)}>À propos</NavLink></li>
-          <li><NavLink to="/skills" className="nav-link" onClick={() => setIsOpen(false)}>Compétences</NavLink></li>
-          <li><NavLink to="/projects" className="nav-link" onClick={() => setIsOpen(false)}>Projets</NavLink></li>
-          <li><NavLink to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</NavLink></li>
+          <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Accueil</NavLink></li>
+          <li><NavLink to="/apropos" className="nav-link" onClick={closeMenu}>À propos</NavLink></li>
+          <li><NavLink to="/projects" className="nav-link" onClick={closeMenu}>Projets</NavLink></li>
+          <li><NavLink to="/agence" className="nav-link" onClick={closeMenu}>Mon Agence</NavLink></li>
+          <li><NavLink to="/contact" className="nav-link" onClick={closeMenu}>Contact</NavLink></li>
         </ul>
       </div>
     </nav>

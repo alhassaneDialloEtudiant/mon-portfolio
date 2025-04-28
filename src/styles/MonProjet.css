@@ -1,0 +1,158 @@
+/* ===== Conteneur Principal ===== */
+.projet-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* ===== Titre Principal ===== */
+.projet-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.projet-title::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #00d69d;
+  margin: 0.5rem auto 0;
+  border-radius: 3px;
+  animation: expandBar 1s ease-out forwards;
+}
+
+@keyframes expandBar {
+  from { width: 0; }
+  to { width: 70px; }
+}
+
+/* ===== Introduction ===== */
+.projet-intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* ===== Filtres ===== */
+.filter-buttons {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.filter-buttons button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 2px solid #00d69d;
+  background: transparent;
+  color: #00d69d;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background: #00d69d;
+  color: white;
+}
+
+.filter-buttons .active {
+  background: #00d69d;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* ===== Grille Projets ===== */
+.projets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ===== Carte Projet ===== */
+.projet-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projet-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Détails Projet ===== */
+.projet-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #00d69d;
+}
+
+.projet-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.tech-stack {
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* ===== Liens Projet ===== */
+.projet-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.projet-links a {
+  padding: 0.6rem 1.2rem;
+  background: #00d69d;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.projet-links a:hover {
+  background: #00c08a;
+}
+
+.projet-links .disabled {
+  padding: 0.6rem 1.2rem;
+  background: #ccc;
+  color: #777;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* ===== Responsive Adaptation ===== */
+@media (max-width: 768px) {
+  .projet-title {
+    font-size: 2rem;
+  }
+
+  .projet-intro {
+    font-size: 1rem;
+  }
+
+  .projet-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,195 +1,135 @@
-/* ===== Section principale ===== */
 .apropos {
-  padding: 5rem 2rem 4rem;
-  background: linear-gradient(to bottom, #ffffff, #e0f7fa);
-  color: #0a192f;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom, #ffffff, #e8f9fc);
+  min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
-  overflow: hidden;
 }
 
-.apropos h2 {
-  font-size: 2.5rem;
+.titre-principal {
+  font-size: 2.2rem;
+  font-weight: bold;
   margin-bottom: 1.5rem;
   color: #0a192f;
   position: relative;
-  animation: fadeIn 1s ease-in-out;
 }
 
-.apropos h2::after {
+.titre-principal::after {
   content: '';
+  width: 60px;
+  height: 3px;
+  background-color: #64ffda;
   display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #64ffda;
   margin: 0.5rem auto 0;
-  border-radius: 2px;
-  animation: slideIn 1s ease-in-out;
+  border-radius: 5px;
 }
 
-.apropos p {
-  max-width: 800px;
-  margin: 0 auto 2rem;
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #333;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-/* ===== Timeline (Parcours) ===== */
-.timeline {
-  margin: 2rem auto;
-  max-width: 600px;
-  text-align: left;
-  padding-left: 1.5rem;
-  border-left: 3px solid #64ffda;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.timeline li {
-  margin-bottom: 1.5rem;
+.intro {
   font-size: 1.1rem;
-  color: #0a192f;
-  position: relative;
-  padding-left: 1rem;
-  animation: slideInLeft 1s ease-in-out;
+  color: #333;
+  margin-bottom: 2rem;
+  line-height: 1.7;
 }
 
-.timeline li span {
-  color: #64ffda;
-  font-weight: 600;
-}
-
-.timeline li::before {
-  content: '•';
-  position: absolute;
-  left: -0.5rem;
-  top: 0.2rem;
-  font-size: 1.5rem;
-  color: #64ffda;
-}
-
-/* ===== Valeurs ===== */
-.valeurs {
+.onglets {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.valeur {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
-  background-color: #ffffff;
-  border-radius: 30px;
-  font-weight: 500;
-  color: #0a192f;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.valeur:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  background-color: #64ffda;
-  color: #0a192f;
-}
-
-.valeur i {
-  color: #64ffda;
-  font-size: 1.5rem;
-}
-
-/* ===== Compétences techniques ===== */
-.competences {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  animation: fadeIn 1.8s ease-in-out;
+  margin-bottom: 2rem;
 }
 
-.competence {
-  background-color: #0a192f;
-  color: #ffffff;
-  padding: 0.7rem 1.2rem;
-  border-radius: 20px;
-  font-size: 1rem;
+.onglet {
+  padding: 0.6rem 1.2rem;
+  background-color: #f0f0f0;
+  border: none;
   font-weight: 500;
-  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.competence:hover {
+.onglet:hover {
+  background-color: #64ffda;
+  transform: translateY(-2px);
+  color: #0a192f;
+}
+
+.onglet.active {
   background-color: #64ffda;
   color: #0a192f;
-  transform: translateY(-5px);
+  font-weight: bold;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* ===== Objectif ===== */
-.objectif {
-  background-color: #ffffff;
-  max-width: 700px;
-  margin: 3rem auto 0;
+.bloc-contenu {
+  background-color: #fff;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 2s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
+  text-align: left;
 }
 
-.objectif p {
-  font-size: 1.2rem;
+.bloc-contenu h3 {
+  text-align: center;
+  font-size: 1.4rem;
   color: #0a192f;
-  line-height: 1.8;
+  margin-bottom: 1rem;
 }
 
-/* ===== Animations ===== */
+.bloc-contenu ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.skills li {
+  background-color: #0a192f;
+  color: #64ffda;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.skills li:hover {
+  transform: translateY(-3px);
+  background-color: #64ffda;
+  color: #0a192f;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
-
-@keyframes slideIn {
-  from {
-    width: 0;
-  }
-  to {
-    width: 80px;
-  }
+.onglet {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 1rem;
-    border-left: 2px solid #64ffda;
-  }
-
-  .valeurs {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .competences {
-    justify-content: center;
-  }
+.onglet:active {
+  transform: scale(0.96);
 }
