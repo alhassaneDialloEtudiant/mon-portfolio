@@ -10,14 +10,11 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navbar__container {
-  width: 100%;
-  max-width: 1300px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar--hidden {
+  transform: translateY(-100%); /* Masque la navbar */
 }
 
 /* LOGO ET SLOGAN */
@@ -29,14 +26,19 @@
 }
 
 .navbar__logo {
-  width: 80px;
+  width: 100px; /* Augmentation de la taille du logo */
   height: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar__logo:hover {
+  transform: scale(1.1); /* Animation au survol */
 }
 
 .navbar__slogan {
   color: #64ffda;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.2rem; /* Augmentation de la taille du slogan */
   font-weight: 500;
 }
 
@@ -84,7 +86,7 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar__links {
-    position: absolute;
+    position: fixed;
     top: 70px;
     right: 0;
     background-color: #0a192f;
@@ -97,6 +99,7 @@
     opacity: 0;
     visibility: hidden;
     transition: transform 0.5s ease, opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 999;
   }
 
   .navbar__links.open {
@@ -110,7 +113,7 @@
   }
 
   .navbar__logo {
-    width: 60px; /* Logo plus petit sur mobile */
+    width: 80px; /* Logo légèrement plus petit sur mobile */
   }
 
   .navbar__slogan {

@@ -1,16 +1,33 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from '../assets/photos/logo.png'; // Ton logo
 import '../styles/Navbar.css'; // Le CSS mis à jour
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsScrollingDown(true); // Masquer la navbar
+      } else {
+        setIsScrollingDown(false); // Afficher la navbar
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrollingDown ? 'navbar--hidden' : ''}`}>
       <div className="navbar__container">
         {/* Logo + slogan */}
         <div className="navbar__branding" onClick={closeMenu}>
