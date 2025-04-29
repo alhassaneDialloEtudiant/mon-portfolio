@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import logo from '../assets/photos/logo.png'; // Ton logo
-import '../styles/Navbar.css'; // Le CSS que je vais aussi t'envoyer
+import '../styles/Navbar.css'; // Le CSS mis à jour
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,11 +19,9 @@ function Navbar() {
         </div>
 
         {/* Menu hamburger pour mobile */}
-        <div className="navbar__toggle" onClick={toggleMenu}>
-          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-          <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-        </div>
+        <button className="navbar__toggle" onClick={toggleMenu}>
+          {isOpen ? '✖' : '☰'}
+        </button>
 
         {/* Liens de navigation */}
         <ul className={`navbar__links ${isOpen ? 'open' : ''}`}>

@@ -5,48 +5,67 @@ import '../styles/MesExperiences.css';
 function MesExperiences() {
   const experiences = [
     {
-      annee: "Mars 2025 – Aujourd'hui",
-      titre: "Développeur Frontend — Projet Djoni Djoni",
-      lieu: "Projet personnel",
+      annee: " 📅 Mars 2025 – Aujourd'hui",
+      titre: " 🧑‍💻 Développeur Frontend – Projet Djoni Djoni ",
+      lieu: "(Projet personnel, travail en équipe)",
       description: [
-        "Création d'interfaces responsives à partir de maquettes Figma.",
-        "Développement de composants dynamiques en React.",
-        "Collaboration avec l'équipe backend pour l'intégration des API."
+        "Application web de covoiturage interurbain conçue pour simplifier les trajets entre villes.",
+        "✨ Réalisations principales :",
+        "• Intégration des maquettes Figma en interfaces web responsives avec React/Next.js et Tailwind CSS.",
+        "• Développement de composants dynamiques (formulaires, listes de trajets, modales...) avec gestion d'état.",
+        "• Intégration des API REST fournies par l’équipe backend (authentification, trajets, réservations).",
+        "• Tests utilisateurs frontend et ajustements UX/UI selon les feedbacks."
       ],
-      competences: ["React.js", "Figma", "API Integration"]
+      competences: ["Vscode", "Git","Github","React.js", "Node.js", "express.js","Html/CSS", "Figma", "REST API", "Gestion de projet"]
     },
     {
-      annee: "Janvier – Avril 2025",
-      titre: "Développeur Web — Plateforme Mon Master",
-      lieu: "Université d'Évry Paris-Saclay",
-      description: [
-        "Développement d'un site simulant la plateforme Mon Master.",
-        "Création du frontend en React.js et du backend en Node.js avec MySQL."
+      annee: " 📅 Janvier – Avril 2025",
+      titre: "🧑‍💻 Développeur Web – Plateforme Mon Master",
+      lieu: "Université d’Évry Paris-Saclay – Projet encadré par notre enseignant en Gestion de Projet Informatique-travail en équipe",
+            description: [
+        "Développement d’une plateforme simulant le système national de candidature en Master.",
+        "✨ Missions réalisées :",
+        "• Conception et développement du frontend en React.js pour trois espaces distincts :",
+        "  ➤ Espace Étudiant (création de compte, soumission de candidature, classement de masters).",
+        "  ➤ Espace Administrateur Université (gestion des programmes, critères d’admission).",
+        "  ➤ Espace Administrateur Général (gestion des utilisateurs et du système global).",
+        "• Mise en place du backend en Node.js/Express avec une base MySQL via XAMPP.",
+        "• Développement de fonctionnalités clés : création de compte, consultation de catalogues, classement automatique des candidatures, attribution des places."
       ],
-      competences: ["React.js", "Node.js", "Express.js", "MySQL", "XAMPP"]
+      competences: ["Vscode", "Git","Github","React.js", "Node.js", "Express.js", "MySQL", "XAMPP", "REST API", "Gestion de projet"]
     },
     {
-      annee: "En cours (2025)",
+      annee: " 📅 Décembre 2024 - En cours (2025)",
       titre: "Développeur FullStack — Site ONG 'Mêmes Droits pour les Enfants'",
-      lieu: "Projet personnel",
-      description: [
-        "Conception d'un site web complet (frontend React, backend Express + MySQL)."
+      lieu: "Projet personnel – ONG basée en Guinée",
+            description: [
+        "Développement d’un site web complet pour une ONG guinéenne œuvrant pour les droits des enfants.",
+        "✨ Missions réalisées :",
+        "• Conception de l’architecture du site et des interfaces avec React.js.",
+        "• Développement du backend Express.js pour la gestion des contenus, des membres et des actualités.",
+        "• Mise en place de la base MySQL et hébergement local avec XAMPP.",
+        "• Travail en cours : espace d’administration sécurisé, formulaire de contact, et actualités dynamiques."
       ],
-      competences: ["React.js", "Express.js", "MySQL", "XAMPP"]
+      competences: ["Vscode", "Git","Github","React.js", "Node.js", "Express.js", "MySQL", "XAMPP", "REST API"]
     },
     {
       annee: "Janvier 2023 – Aujourd'hui",
       titre: "Secrétaire — ONG 'Mêmes Droits pour les Enfants'",
       lieu: "Guinée",
-      description: [
-        "Gestion administrative, communication interne, organisation de réunions."
+            description: [
+        "Membre actif de l’ONG œuvrant pour la défense des droits des enfants en Guinée.",
+        "✨ Missions réalisées :",
+        "• Gestion administrative courante : rédaction de documents, classement, suivi des courriers.",
+        "• Communication interne : rédaction de comptes rendus, diffusion des informations auprès des membres.",
+        "• Organisation et planification de réunions associatives.",
+        "• Soutien logistique lors d’événements de sensibilisation ou ateliers."
       ],
-      competences: ["Gestion administrative", "Communication", "Organisation"]
+      competences: ["Gestion administrative", "Communication", "Organisation", "Engagement associatif"]
     },
     {
       annee: "Novembre 2023 – Aujourd'hui",
       titre: "Serveur — Restaurant La Boucherie",
-      lieu: "France",
+      lieu: "les ulis , France",
       description: [
         "Prise de commandes, saisie rigoureuse, service en salle.",
         "Gestion du contact client et du service rapide."
@@ -55,13 +74,16 @@ function MesExperiences() {
     },
     {
       annee: "Juillet – Août 2023",
-      titre: "Stagiaire Formateur & Développeur Web",
+      titre: "👨‍🏫 Stagiaire Formateur & Développeur Web",
       lieu: "Cabinet OMC, Guinée",
-      description: [
-        "Création et mise à jour de sites web sous WordPress.",
-        "Formation de jeunes à l’utilisation de WordPress."
+       description: [
+        "Stage axé sur la création de sites web WordPress et la transmission de compétences numériques.",
+        "✨ Missions réalisées :",
+        "• Création, personnalisation et mise à jour de sites web avec WordPress (thèmes, plugins, contenus).",
+        "• Formation de jeunes à la gestion de contenu, à l’utilisation de WordPress et aux bonnes pratiques du web.",
+        "• Assistance technique et accompagnement lors de la prise en main des outils."
       ],
-      competences: ["WordPress", "Formation", "Gestion de contenus"]
+      competences: ["WordPress", "Formation", "Pédagogie", "CMS", "Gestion de contenus"]
     },
   ];
 

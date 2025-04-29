@@ -62,10 +62,7 @@ function Home() {
           <h1>
             Bienvenue sur mon <span className="highlight">portfolio</span>
           </h1>
-          <p>
-            Étudiant en <strong>Master MIAGE</strong>, je conçois des solutions web performantes
-            et je me spécialise en <strong>data</strong> et <strong>technologies modernes</strong>.
-          </p>
+          <p>Étudiant en L3 Informatique, parcours MIAGE à l'Université d'Évry Paris-Saclay, et admis en M1 MIAGE en alternance, je me spécialise en tant que <strong>développeur Full-stack </strong>, avec des compétences en développement web (front-end et back-end), <strong>big data</strong>, <strong>data engineering</strong>, bases de données, gestion des systèmes d'information et <strong>technologies modernes </strong>.</p>
           <button onClick={handleDownload} className="home__button">
             <i className="fas fa-file-download"></i> Télécharger mon CV
           </button>

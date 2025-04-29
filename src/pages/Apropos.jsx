@@ -30,11 +30,7 @@ function Apropos() {
     <section className="apropos">
       <div className="container">
         <h2 className="titre-principal">À propos de moi</h2>
-        <p className="intro">
-          Je m’appelle <strong>Diallo Alhassane</strong>, étudiant en <strong>Master MIAGE</strong> à l’Université Paris Nanterre.
-          Passionné par le développement web et la data, je conçois des solutions modernes et performantes,
-          tout en valorisant l’esthétique et l’expérience utilisateur.
-        </p>
+        <p  className="intro">Je m'appelle <strong>Diallo Alhassane</strong>. Passionné par le développement web, le big data, et l'ingénierie des données, je conçois des solutions modernes et performantes, tout en plaçant l'expérience utilisateur et l'esthétique au cœur de mon travail.</p>
 
         {/* Onglets */}
         <div className="onglets">

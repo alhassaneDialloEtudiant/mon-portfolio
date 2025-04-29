@@ -1,13 +1,8 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/mon-portfolio/', // ← Le nom exact de ton dépôt
+  base: '/mon-portfolio/', // ← nom EXACT de ton dépôt GitHub
   plugins: [react()],
-  build: {
-    outDir: 'dist', // par défaut, mais je le précise
-  },
-  server: {
-    historyApiFallback: true, // 👈 ajoute cette ligne pour corriger l'erreur 404 en local aussi
-  },
-});
+})

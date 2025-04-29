@@ -7,8 +7,20 @@ function MonProjet() {
 
   const projets = [
     {
+      titre: "💼 mon-portfolio",
+      description: "Développement de mon portfolio personnel pour présenter mes projets, compétences et parcours.Créé avec React.js, ce site met en valeur mes expériences, mes projets web et mes travaux en data, avec une interface responsive et dynamique.",
+      technologies: "React.js, CSS, React Router, Framer Motion",
+      categorie: "web",
+      github: "https://alhassanedialloetudiant.github.io/mon-portfolio/",
+      demo: ""
+    },
+        {
       titre: "Site ONG - Mêmes Droits pour les Enfants",
-      description: "Création d’un site web vitrine pour une ONG locale.",
+      description: [
+        "Création d’un site vitrine pour une ONG locale basée en Guinée.",
+        "✨ Développement fullstack d’une plateforme web destinée à améliorer la visibilité d’une ONG engagée dans la défense des droits des enfants.",
+        "• Le site comprend une structure frontend dynamique, un backend avec gestion des données, et une base MySQL hébergée en local."
+      ].join(" "),
       technologies: "React, Express, MySQL, XAMPP",
       categorie: "web",
       github: "https://github.com/diallo/ong-droits-enfants",
@@ -19,31 +31,15 @@ function MonProjet() {
       description: "Simulation de gestion de candidatures en ligne.",
       technologies: "React, Node.js, Express, MySQL",
       categorie: "web",
-      github: "https://github.com/diallo/mon-master",
+      github: "https://github.com/alhassaneDialloEtudiant/projetMonMasterAMR.git",
       demo: ""
     },
     {
-      titre: "Tableau de bord Power BI",
-      description: "Création d’un dashboard interactif pour données commerciales.",
-      technologies: "Power BI, SQL Server",
-      categorie: "bi",
-      github: "",
-      demo: ""
-    },
-    {
-      titre: "Analyse de Données Commerciales",
-      description: "Analyse de ventes avec SQL et visualisation Power BI.",
-      technologies: "SQL Server, Power BI",
-      categorie: "data",
-      github: "",
-      demo: ""
-    },
-    {
-      titre: "Projet Djoni Djoni",
+      titre: "Simulateur de calcul de crédit",
       description: "Création d'interfaces responsives React à partir de maquettes Figma.",
-      technologies: "React, API Figma",
+      technologies: "html, CSS, JavaScript",
       categorie: "web",
-      github: "https://github.com/diallo/djoni-djoni",
+      github: "https://github.com/alhassaneDialloEtudiant/SimulateurDeCalcul.git",
       demo: ""
     }
   ];

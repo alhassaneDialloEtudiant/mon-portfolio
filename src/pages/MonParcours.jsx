@@ -13,27 +13,32 @@ function MonParcours() {
     {
       annee: '2023 – 2024',
       titre: 'Licence 2 Informatique',
-      ecole: 'Université d’Évry – Université Paris-Saclay, France'
+      ecole: 'Université d’Évry – Université Paris-Saclay, France',
+      statut: 'terminé'
     },
     {
       annee: '2022 – 2023',
       titre: 'Licence 3 Informatique',
-      ecole: 'Université de Labé, Guinée'
+      ecole: 'Université de Labé, Guinée',
+      statut: 'terminé'
     },
     {
       annee: '2021 – 2022',
       titre: 'Licence 2 Informatique',
-      ecole: 'Université de Labé, Guinée'
+      ecole: 'Université de Labé, Guinée',
+      statut: 'terminé'
     },
     {
       annee: '2020 – 2021',
       titre: 'Licence 1 Informatique',
-      ecole: 'Université de Labé, Guinée'
+      ecole: 'Université de Labé, Guinée',
+      statut: 'terminé'
     },
     {
       annee: '2019 – 2020',
       titre: 'Baccalauréat Scientifique – option Mathématiques',
-      ecole: 'Lycée Grande École, Guinée'
+      ecole: 'Lycée Grande École, Guinée',
+      statut: 'terminé'
     }
   ];
 
