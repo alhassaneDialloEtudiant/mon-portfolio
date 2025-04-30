@@ -42,7 +42,7 @@ function Navbar() {
 
         {/* Liens de navigation */}
         <ul className={`navbar__links ${isOpen ? 'open' : ''}`}>
-          <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Accueil</NavLink></li>
+          <li><NavLink to="/home" className="nav-link" onClick={closeMenu}>Accueil</NavLink></li>
           <li><NavLink to="/apropos" className="nav-link" onClick={closeMenu}>À propos</NavLink></li>
           <li><NavLink to="/projects" className="nav-link" onClick={closeMenu}>Projets</NavLink></li>
           <li><NavLink to="/agence" className="nav-link" onClick={closeMenu}>Mon Agence</NavLink></li>

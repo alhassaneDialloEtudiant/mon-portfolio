@@ -74,7 +74,7 @@ function Contact() {
         email: formData.email,
         message: formData.message
       },
-      'nbGEkrG2QC4IbtBCq'
+      'bjyEB1_Z-LwuLLicM' // 🔁 Remplace ici par ta clé publique EmailJS
     )
     .then(() => {
       setLoading(false);
@@ -83,9 +83,10 @@ function Contact() {
       setCaptchaAttempts(0);
       generateCaptcha();
     })
-    .catch(() => {
+    .catch((error) => {
       setLoading(false);
-      setFeedback({ type: 'error', message: "Une erreur est survenue, veuillez réessayer." });
+      console.error("Erreur EmailJS :", error);
+      setFeedback({ type: 'error', message: "Une erreur est survenue lors de l'envoi. Merci de réessayer." });
     });
   };
 
@@ -107,7 +108,6 @@ function Contact() {
             <input type="email" name="email" placeholder="Votre e-mail" value={formData.email} onChange={handleChange} required />
             <textarea name="message" placeholder="Votre message..." rows="6" value={formData.message} onChange={handleChange} required></textarea>
 
-            {/* CAPTCHA */}
             <div className="captcha-box">
               <span className="captcha-code">{captcha}</span>
               <button type="button" className="refresh-captcha" onClick={generateCaptcha}>🔄</button>

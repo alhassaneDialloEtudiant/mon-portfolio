@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser'; // Import EmailJS
 import photo from '../assets/photos/moi.jpg';
 import '../styles/Home.css';
 
 function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', reason: '' });
   const navigate = useNavigate();
-  const base = import.meta.env.BASE_URL;
 
   // Gestion du téléchargement du CV
   const handleDownload = () => {
@@ -15,17 +18,47 @@ function Home() {
   };
 
   const confirmDownload = () => {
-    const link = document.createElement('a');
-    link.href = `${base}cv/monCvAlternanceDialloAlhassane.pdf`;
-    link.download = 'monCvAlternanceDialloAlhassane.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
     setIsModalOpen(false);
+    setIsFormOpen(true); // Ouvre le formulaire
   };
 
   const cancelDownload = () => {
     setIsModalOpen(false);
+  };
+
+  // Gestion du formulaire
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    // Envoi de l'email via EmailJS
+    emailjs
+      .send(
+        'service_03l7g3z', // Remplacez par votre ID de service EmailJS
+        'template_app41kt', // Remplacez par votre ID de template EmailJS
+        {
+          name: formData.name, // Nom
+          email: formData.email, // Email
+          message: formData.reason, // Motif transmis comme "message"
+        },
+        'bjyEB1_Z-LwuLLicM' // Remplacez par votre clé publique EmailJS
+      )
+      .then(
+        (response) => {
+          console.log('Email envoyé avec succès !', response.status, response.text);
+          setIsFormOpen(false);
+          setFormData({ name: '', email: '', reason: '' }); // Réinitialise le formulaire
+          setIsConfirmationModalOpen(true); // Ouvre le modal de confirmation
+        },
+        (error) => {
+          console.error('Erreur lors de l\'envoi de l\'email :', error);
+          alert('Une erreur est survenue lors de l\'envoi de votre demande. Veuillez réessayer.');
+        }
+      );
   };
 
   // Navigation vers d'autres pages
@@ -62,7 +95,9 @@ function Home() {
           <h1>
             Bienvenue sur mon <span className="highlight">portfolio</span>
           </h1>
-          <p>Étudiant en L3 Informatique, parcours MIAGE à l'Université d'Évry Paris-Saclay, et admis en M1 MIAGE en alternance, je me spécialise en tant que <strong>développeur Full-stack </strong>, avec des compétences en développement web (front-end et back-end), <strong>big data</strong>, <strong>data engineering</strong>, bases de données, gestion des systèmes d'information et <strong>technologies modernes </strong>.</p>
+          <p>
+            Étudiant en L3 Informatique, parcours MIAGE à l'Université d'Évry Paris-Saclay, et admis en M1 MIAGE en alternance, je me spécialise en tant que <strong>développeur Full-stack</strong>, avec des compétences en développement web (front-end et back-end), <strong>big data</strong>, <strong>data engineering</strong>, bases de données, gestion des systèmes d'information et <strong>technologies modernes</strong>.
+          </p>
           <button onClick={handleDownload} className="home__button">
             <i className="fas fa-file-download"></i> Télécharger mon CV
           </button>
@@ -82,6 +117,76 @@ function Home() {
                 Non
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Formulaire de demande de CV */}
+      {isFormOpen && (
+        <div className="form-modal">
+          <div className="form-modal__content">
+            <h2>Demande de CV</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Nom :</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email :</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="reason">Motif de la demande :</label>
+                <textarea
+                  id="reason"
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
+              </div>
+              <div className="form-actions">
+                <button type="submit" className="form-button form-button--submit">
+                  Envoyer
+                </button>
+                <button
+                  type="button"
+                  className="form-button form-button--cancel"
+                  onClick={() => setIsFormOpen(false)}
+                >
+                  Annuler
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de confirmation après soumission */}
+      {isConfirmationModalOpen && (
+        <div className="modal">
+          <div className="modal__content">
+            <p>Votre demande a été envoyée avec succès ! Vous recevrez une réponse dans les 24 heures.</p>
+            <button
+              className="modal__button modal__button--confirm"
+              onClick={() => setIsConfirmationModalOpen(false)}
+            >
+              OK
+            </button>
           </div>
         </div>
       )}
